@@ -18,6 +18,30 @@ body {
   min-height: 100vh;
 }
 
+a,
+button {
+  text-rendering: geometricPrecision;
+}
+
+/* Smooth, professional feel across UI interactions */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+.elevate-hover {
+  @apply transition duration-300 ease-out;
+}
+
+.elevate-hover:hover {
+  transform: translateY(-2px);
+}
+
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-4 focus-visible:ring-slateblue/20 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+}
+
 a {
   @apply transition-colors duration-200;
 }
@@ -32,6 +56,10 @@ a {
 
 .glass-panel {
   @apply rounded-[24px] border border-white/60 bg-white shadow-panel;
+}
+
+.glass-panel.strong {
+  @apply border-slate-200/70 bg-white/95;
 }
 
 .section-space {

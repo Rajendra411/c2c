@@ -18,6 +18,9 @@ const ContactPage = lazy(() => import("./pages/public/ContactPage"));
 const PrivacyPolicyPage = lazy(() => import("./pages/public/PrivacyPolicyPage"));
 const TermsAndConditionsPage = lazy(() => import("./pages/public/TermsAndConditionsPage"));
 const AuthPage = lazy(() => import("./pages/public/AuthPage"));
+const CoursesPage = lazy(() => import("./pages/public/CoursesPage"));
+const CourseDetailPage = lazy(() => import("./pages/public/CourseDetailPage"));
+const DashboardPage = lazy(() => import("./pages/public/DashboardPage"));
 const NotFoundPage = lazy(() => import("./pages/public/NotFoundPage"));
 const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
 const AdminDashboardPage = lazy(() => import("./pages/admin/AdminDashboardPage"));
@@ -25,6 +28,7 @@ const AdminCollectionPage = lazy(() => import("./pages/admin/AdminCollectionPage
 const AdminSettingsPage = lazy(() => import("./pages/admin/AdminSettingsPage"));
 const AdminInboxPage = lazy(() => import("./pages/admin/AdminInboxPage"));
 const AdminApplicationsPage = lazy(() => import("./pages/admin/AdminApplicationsPage"));
+const LearnerPrivateRoute = lazy(() => import("./routes/LearnerPrivateRoute"));
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -55,6 +59,16 @@ const AppShell = () => (
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="terms-and-conditions" element={<TermsAndConditionsPage />} />
           <Route path="auth" element={<AuthPage />} />
+          <Route path="courses" element={<CoursesPage />} />
+          <Route path="courses/:slug" element={<CourseDetailPage />} />
+          <Route
+            path="dashboard"
+            element={
+              <LearnerPrivateRoute>
+                <DashboardPage />
+              </LearnerPrivateRoute>
+            }
+          />
         </Route>
 
         <Route path="/admin/login" element={<AdminLoginPage />} />

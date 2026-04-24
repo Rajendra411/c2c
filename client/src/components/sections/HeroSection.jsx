@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSite } from "../../context/SiteContext";
 
 const HeroSection = () => {
   const { settings } = useSite();
+  const [reducedMotion, setReducedMotion] = useState(false);
   const headline = settings?.hero?.headline || "Vision into Value.\nAccelerated.";
   const headlineLines = headline
     .split("\n")
@@ -26,12 +28,38 @@ const HeroSection = () => {
     }
   }
 
+  useEffect(() => {
+    const media = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    if (!media) return;
+    const update = () => setReducedMotion(Boolean(media.matches));
+    update();
+    media.addEventListener?.("change", update);
+    return () => media.removeEventListener?.("change", update);
+  }, []);
+
+  const videoUrl = settings?.hero?.videoUrl;
+
   return (
     <section className="relative overflow-hidden border-b border-slate-200 noise-surface">
-      <div className="absolute inset-0 opacity-60">
-        <div className="absolute left-[-10%] top-10 h-64 w-64 rounded-full bg-[#f1f5ff] blur-3xl" />
-        <div className="absolute right-[-8%] top-16 h-72 w-72 rounded-full bg-[#eef2fb] blur-3xl" />
-      </div>
+      {videoUrl && !reducedMotion ? (
+        <div className="absolute inset-0">
+          <video
+            className="h-full w-full object-cover opacity-40"
+            src={videoUrl}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white/95" />
+        </div>
+      ) : (
+        <div className="absolute inset-0 opacity-60">
+          <div className="absolute left-[-10%] top-10 h-64 w-64 rounded-full bg-[#f1f5ff] blur-3xl" />
+          <div className="absolute right-[-8%] top-16 h-72 w-72 rounded-full bg-[#eef2fb] blur-3xl" />
+        </div>
+      )}
 
       <div className="page-shell relative py-14 sm:py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">

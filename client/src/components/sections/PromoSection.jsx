@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSite } from "../../context/SiteContext";
+import promoImage from "../../assets/illustrations/promo-genai.svg";
 
 const PromoSection = () => {
   const { settings } = useSite();
@@ -20,7 +21,7 @@ const PromoSection = () => {
           >
             <div className="absolute inset-0 dot-matrix opacity-15" />
             <img
-              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80"
+              src={promoImage}
               alt="Generative AI"
               className="relative h-full w-full rounded-[18px] object-cover"
               loading="lazy"

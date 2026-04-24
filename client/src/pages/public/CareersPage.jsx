@@ -60,7 +60,7 @@ const CareersPage = () => {
   };
 
   if (loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading careers..." variant="form" />;
   }
 
   return (

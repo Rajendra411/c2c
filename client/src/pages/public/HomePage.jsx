@@ -30,7 +30,7 @@ const HomePage = () => {
   }, []);
 
   if (settingsLoading || loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading homepage..." variant="cards" />;
   }
 
   return (

@@ -23,7 +23,7 @@ const AdminApplicationsPage = () => {
   };
 
   if (loading) {
-    return <LoadingScreen label="Loading applications..." />;
+    return <LoadingScreen label="Loading applications..." variant="cards" />;
   }
 
   return (

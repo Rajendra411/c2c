@@ -16,7 +16,7 @@ const ServiceDetailPage = () => {
   }, [slug]);
 
   if (loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading service..." variant="page" />;
   }
 
   if (!service) {

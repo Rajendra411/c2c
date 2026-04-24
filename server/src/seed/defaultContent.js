@@ -10,6 +10,7 @@ export const defaultSettings = {
   },
   hero: {
     eyebrow: "AI-Ready Enterprise Services",
+    videoUrl: "https://cdn.coverr.co/videos/coverr-students-using-a-laptop-5407/1080p.mp4",
     headline: "Vision into Value.\nAccelerated.",
     rotatingWords: ["Technology", "Talent", "Growth", "Enablement"],
     subtext:
@@ -487,5 +488,45 @@ export const defaultCaseStudies = [
     coverImage:
       "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80",
     featured: true,
+  },
+];
+
+export const defaultCourses = [
+  {
+    title: "Full Stack Web Development (MERN)",
+    slug: "full-stack-web-development-mern",
+    heroImage: "",
+    shortDescription: "Build production-ready web apps with React, Node.js, MongoDB, APIs, and deployment.",
+    description:
+      "A job-aligned MERN program covering modern React UI patterns, API design, authentication, data modeling, and deployment. Includes projects, assessments, and interview readiness checkpoints.",
+    level: "Intermediate",
+    duration: "12 weeks",
+    tags: ["MERN", "React", "Node.js", "MongoDB"],
+    price: 4999,
+    published: true,
+    modules: [
+      { title: "Foundations & Tooling", lessons: ["Git workflows", "JS/TS essentials", "Vite + React setup"] },
+      { title: "Backend & APIs", lessons: ["Express REST APIs", "Auth & JWT", "MongoDB modeling"] },
+      { title: "Frontend Mastery", lessons: ["State patterns", "Forms + validation", "Performance & UX"] },
+      { title: "Capstone", lessons: ["Project build", "Deployment", "Portfolio + mock interviews"] },
+    ],
+  },
+  {
+    title: "Data Analytics for Business",
+    slug: "data-analytics-for-business",
+    heroImage: "",
+    shortDescription: "Learn analytics foundations: SQL, dashboards, storytelling, and metrics that drive decisions.",
+    description:
+      "Learn practical analytics used by modern product and operations teams: SQL, KPI design, dashboarding, and stakeholder-ready insights. Includes real-world case prompts and assessments.",
+    level: "Beginner",
+    duration: "8 weeks",
+    tags: ["SQL", "Analytics", "Dashboards"],
+    price: 0,
+    published: true,
+    modules: [
+      { title: "Analytics Fundamentals", lessons: ["Metrics & KPIs", "Data hygiene", "Experiment basics"] },
+      { title: "SQL for Analysis", lessons: ["Joins", "Window functions", "Cohort queries"] },
+      { title: "Dashboards", lessons: ["Storytelling", "Executive views", "Operational drill-downs"] },
+    ],
   },
 ];

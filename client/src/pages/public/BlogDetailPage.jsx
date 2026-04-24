@@ -15,7 +15,7 @@ const BlogDetailPage = () => {
   }, [slug]);
 
   if (loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading article..." variant="page" />;
   }
 
   if (!blog) {

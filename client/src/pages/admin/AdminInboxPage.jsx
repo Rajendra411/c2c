@@ -23,7 +23,7 @@ const AdminInboxPage = () => {
   };
 
   if (loading) {
-    return <LoadingScreen label="Loading inquiries..." />;
+    return <LoadingScreen label="Loading inquiries..." variant="cards" />;
   }
 
   return (

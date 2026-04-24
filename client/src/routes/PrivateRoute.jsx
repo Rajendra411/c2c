@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading admin..." variant="dashboard" />;
   }
 
   if (!isAuthenticated) {

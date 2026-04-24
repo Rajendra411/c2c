@@ -21,6 +21,7 @@ const createFormState = (settings) => ({
   address: settings?.contact?.address || "",
   mapEmbedUrl: settings?.contact?.mapEmbedUrl || "",
   eyebrow: settings?.hero?.eyebrow || "",
+  heroVideoUrl: settings?.hero?.videoUrl || "",
   headline: settings?.hero?.headline || "",
   rotatingWords: (settings?.hero?.rotatingWords || []).join("\n"),
   subtext: settings?.hero?.subtext || "",
@@ -70,6 +71,7 @@ const SettingsForm = ({ settings, onSave, saving }) => {
       },
       hero: {
         eyebrow: formState.eyebrow,
+        videoUrl: formState.heroVideoUrl,
         headline: formState.headline,
         rotatingWords: formState.rotatingWords
           .split("\n")
@@ -155,6 +157,16 @@ const SettingsForm = ({ settings, onSave, saving }) => {
           <div>
             <label className="mb-2 block text-sm font-semibold text-midnight">Eyebrow</label>
             <input className="w-full rounded-2xl border-slate-200 bg-white" value={formState.eyebrow} onChange={(event) => handleChange("eyebrow", event.target.value)} />
+          </div>
+          <div>
+            <label className="mb-2 block text-sm font-semibold text-midnight">Hero Background Video URL (mp4)</label>
+            <input
+              className="w-full rounded-2xl border-slate-200 bg-white"
+              value={formState.heroVideoUrl}
+              onChange={(event) => handleChange("heroVideoUrl", event.target.value)}
+              placeholder="https://cdn.example.com/video.mp4"
+            />
+            <p className="mt-2 text-xs text-slate-500">Optional. Use a direct mp4 URL for autoplay background video.</p>
           </div>
           <div>
             <label className="mb-2 block text-sm font-semibold text-midnight">Headline</label>

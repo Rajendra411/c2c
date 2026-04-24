@@ -41,22 +41,22 @@ const ContactPage = () => {
   };
 
   if (settingsLoading || loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading contact..." variant="form" />;
   }
 
   return (
     <>
       <SEO
         title={`Contact | ${settings?.companyName}`}
-        description="Reach out to discuss services, staffing, training, or broader digital transformation priorities."
+        description="Reach out to discuss programs, platforms, partnerships, or learner success operations."
       />
       <section className="section-space">
         <div className="page-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="glass-panel p-8">
             <SectionHeading
               eyebrow="Contact"
-              title="Let’s design the right engagement model for your next move."
-              description="Company details below are powered by the editable settings record in MongoDB."
+              title="Talk to us about programs, partnerships, or platform builds."
+              description="We typically respond within 1 business day. For urgent inquiries, call our support line."
             />
 
             <div className="mt-8 space-y-5 text-sm leading-7 text-slate-600">
@@ -74,6 +74,20 @@ const ContactPage = () => {
               </div>
             </div>
 
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {[
+                { title: "Admissions & Partnerships", body: "Program onboarding, hiring partners, and cohort planning." },
+                { title: "Platform & Integrations", body: "SSO, LMS, CRM, analytics, and secure delivery workflows." },
+                { title: "Support", body: "Learner support models, mentoring, and success operations." },
+                { title: "Press & Media", body: "Brand, PR, and community collaborations." },
+              ].map((item) => (
+                <div key={item.title} className="rounded-[18px] border border-slate-200 bg-[#f7f9fd] p-5 shadow-panel">
+                  <p className="text-sm font-bold text-midnight">{item.title}</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-600">{item.body}</p>
+                </div>
+              ))}
+            </div>
+
             {settings?.contact?.mapEmbedUrl ? (
               <div className="mt-8 overflow-hidden rounded-[28px]">
                 <iframe
@@ -89,7 +103,9 @@ const ContactPage = () => {
 
           <div className="glass-panel p-8">
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-500">Send a Message</p>
-            <h2 className="mt-4 font-display text-3xl font-bold text-midnight">Tell us what you are solving for.</h2>
+            <h2 className="mt-4 font-display text-3xl font-bold text-midnight">
+              Tell us what you’re building for learners.
+            </h2>
             <form onSubmit={handleSubmit} className="mt-8 space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
@@ -170,6 +186,10 @@ const ContactPage = () => {
                 {submitting ? "Sending..." : "Send Message"}
               </button>
             </form>
+            <p className="mt-4 text-xs leading-6 text-slate-500">
+              By submitting, you agree to our <span className="font-semibold">Privacy Policy</span> and that we may
+              contact you about your inquiry.
+            </p>
           </div>
         </div>
       </section>

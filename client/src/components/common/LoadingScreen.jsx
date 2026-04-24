@@ -1,6 +1,52 @@
-const LoadingScreen = ({ fullScreen = false, label = "Loading..." }) => (
-  <div className={fullScreen ? "min-h-screen" : "min-h-[280px]"}>
-    <div className="page-shell py-10 sm:py-14">
+import { SkeletonCardGrid, SkeletonDashboard, SkeletonForm, SkeletonText } from "./Skeleton";
+
+const LoadingScreen = ({ fullScreen = false, label = "Loading...", variant = "page" }) => {
+  const Wrapper = ({ children }) => (
+    <div className={fullScreen ? "min-h-screen" : "min-h-[280px]"}>
+      <div className="page-shell py-10 sm:py-14">{children}</div>
+    </div>
+  );
+
+  if (variant === "dashboard") {
+    return (
+      <div className={fullScreen ? "min-h-screen" : "min-h-[280px]"}>
+        <SkeletonDashboard />
+      </div>
+    );
+  }
+
+  if (variant === "form") {
+    return (
+      <Wrapper>
+        <div className="space-y-6">
+          <div className="glass-panel p-8 space-y-4">
+            <div className="skeleton-block shimmer h-6 w-48" />
+            <SkeletonText lines={2} lastWidth="w-3/5" />
+          </div>
+          <SkeletonForm />
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-400">{label}</p>
+        </div>
+      </Wrapper>
+    );
+  }
+
+  if (variant === "cards") {
+    return (
+      <Wrapper>
+        <div className="space-y-6">
+          <div className="glass-panel p-8 space-y-4">
+            <div className="skeleton-block shimmer h-6 w-56" />
+            <SkeletonText lines={2} lastWidth="w-2/3" />
+          </div>
+          <SkeletonCardGrid count={4} />
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-400">{label}</p>
+        </div>
+      </Wrapper>
+    );
+  }
+
+  return (
+    <Wrapper>
       <div className="glass-panel overflow-hidden p-8">
         <div className="flex items-center justify-between gap-6">
           <div className="min-w-0 flex-1 space-y-3">
@@ -11,33 +57,16 @@ const LoadingScreen = ({ fullScreen = false, label = "Loading..." }) => (
             <div className="skeleton-block shimmer h-10 w-28 rounded-full" />
           </div>
         </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <div key={index} className="rounded-[22px] border border-slate-200/60 bg-white p-6">
-              <div className="flex items-start gap-4">
-                <div className="skeleton-block shimmer h-12 w-12 rounded-2xl" />
-                <div className="flex-1 space-y-3">
-                  <div className="skeleton-block shimmer h-4 w-40" />
-                  <div className="skeleton-block shimmer h-3 w-full" />
-                  <div className="skeleton-block shimmer h-3 w-5/6" />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="mt-10 space-y-3">
           <div className="skeleton-block shimmer h-3 w-full" />
           <div className="skeleton-block shimmer h-3 w-11/12" />
           <div className="skeleton-block shimmer h-3 w-9/12" />
         </div>
-
         <p className="mt-8 text-xs font-bold uppercase tracking-[0.22em] text-slate-400">{label}</p>
       </div>
-    </div>
-  </div>
-);
+    </Wrapper>
+  );
+};
 
 export default LoadingScreen;
 

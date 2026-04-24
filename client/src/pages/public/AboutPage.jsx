@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import SEO from "../../components/common/SEO";
 import SectionHeading from "../../components/common/SectionHeading";
 import { useSite } from "../../context/SiteContext";
+import eduTechImage from "../../assets/illustrations/edutech.svg";
 
 const AboutPage = () => {
   const { settings } = useSite();
+  const companyName = settings?.companyName || "Enterprise Brand";
 
   return (
     <>
@@ -15,10 +17,45 @@ const AboutPage = () => {
       <section className="section-space">
         <div className="page-shell space-y-12">
           <SectionHeading
-            eyebrow="About Us"
-            title="A business-first partner for enterprise technology, talent, and growth execution."
-            description={settings?.about?.overview}
+            eyebrow="About"
+            title="An EduTech-first company building measurable learning outcomes."
+            description={
+              settings?.about?.overview ||
+              `${companyName} designs learning products, platforms, and delivery operations that help learners build job-ready skills faster.`
+            }
           />
+
+          <div className="glass-panel overflow-hidden">
+            <div className="grid gap-8 p-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">How we work</p>
+                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-midnight">
+                  Curriculum, platform, and learner success—built as one system.
+                </h2>
+                <p className="mt-5 text-base leading-8 text-slate-600">
+                  Modern EduTech leaders win by combining content quality, learner experience, and placement readiness.
+                  We bring a product mindset to every program: clear outcomes, structured practice, and visibility for
+                  learners, mentors, and operations teams.
+                </p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {[
+                    { title: "Outcome-led programs", body: "Skills mapped to roles, projects, and hiring signals." },
+                    { title: "Platform-first delivery", body: "Dashboards, assessments, and progress analytics." },
+                    { title: "Mentor-enabled learning", body: "Support models that increase completion and confidence." },
+                    { title: "Operational excellence", body: "Intake, cohorts, feedback loops, and reporting." },
+                  ].map((item) => (
+                    <div key={item.title} className="rounded-[18px] border border-slate-200 bg-[#f7f9fd] p-5 shadow-panel">
+                      <p className="text-sm font-bold text-midnight">{item.title}</p>
+                      <p className="mt-2 text-sm leading-7 text-slate-600">{item.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-panel">
+                <img src={eduTechImage} alt="EduTech platform preview" className="h-[420px] w-full object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
             {[
@@ -40,11 +77,33 @@ const AboutPage = () => {
             ))}
           </div>
 
+          <div className="grid gap-6 lg:grid-cols-4">
+            {[
+              { label: "Learner completion support", value: "Mentors + community + nudges" },
+              { label: "Assessment-led mastery", value: "Quizzes, projects, proctored checks" },
+              { label: "Placement readiness", value: "Mock interviews + resume + portfolio" },
+              { label: "Insights for ops teams", value: "Cohort dashboards + reporting" },
+            ].map((item, index) => (
+              <motion.article
+                key={item.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.45, delay: index * 0.05 }}
+                className="rounded-[18px] border border-slate-200 bg-[#f7f9fd] p-7 shadow-panel"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">EduTech</p>
+                <p className="mt-3 text-lg font-bold text-midnight">{item.label}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{item.value}</p>
+              </motion.article>
+            ))}
+          </div>
+
           <div>
             <SectionHeading
               eyebrow="Leadership Team"
-              title="Leaders focused on practical transformation and accountable outcomes."
-              description="Every profile below is fully dynamic and editable from the admin dashboard."
+              title="Leaders focused on learner outcomes and product excellence."
+              description="Teams across curriculum, product, and learner success—guided by measurable results."
             />
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {(settings?.leadershipTeam || []).map((leader, index) => (

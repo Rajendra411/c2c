@@ -15,6 +15,12 @@ import caseStudyRoutes from "./routes/caseStudyRoutes.js";
 import settingsRoutes from "./routes/settingsRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import courseRoutes from "./routes/courseRoutes.js";
+import adminCourseRoutes from "./routes/adminCourseRoutes.js";
+import enrollmentRoutes from "./routes/enrollmentRoutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js";
+import learnerDashboardRoutes from "./routes/learnerDashboardRoutes.js";
 
 dotenv.config();
 
@@ -38,6 +44,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/settings", settingsRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/blogs", blogRoutes);
@@ -47,6 +54,11 @@ app.use("/api/contacts", contactRoutes);
 app.use("/api/case-studies", caseStudyRoutes);
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/courses", courseRoutes);
+app.use("/api/admin/courses", adminCourseRoutes);
+app.use("/api/enrollments", enrollmentRoutes);
+app.use("/api/payments", paymentRoutes);
+app.use("/api/learner-dashboard", learnerDashboardRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

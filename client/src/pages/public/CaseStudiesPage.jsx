@@ -30,7 +30,7 @@ const CaseStudiesPage = () => {
   }, [activeIndustry, caseStudies]);
 
   if (loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading case studies..." variant="cards" />;
   }
 
   return (

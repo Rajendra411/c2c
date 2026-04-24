@@ -20,7 +20,7 @@ const AdminDashboardPage = () => {
   }, []);
 
   if (loading) {
-    return <LoadingScreen label="Loading dashboard analytics..." />;
+    return <LoadingScreen label="Loading dashboard analytics..." variant="dashboard" />;
   }
 
   return (

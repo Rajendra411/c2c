@@ -48,7 +48,7 @@ const Header = () => {
           <div className="hidden items-center gap-4 lg:flex">
             <Link
               to="/auth"
-              className="rounded-[10px] bg-midnight px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slateblue"
+              className="focus-ring rounded-[12px] bg-midnight px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-slateblue hover:shadow-panel"
             >
               Register/Signin
             </Link>
@@ -57,7 +57,7 @@ const Header = () => {
           <button
             type="button"
             onClick={() => setMenuOpen((value) => !value)}
-            className="rounded-2xl border border-slate-200 p-3 text-midnight lg:hidden"
+            className="focus-ring rounded-2xl border border-slate-200 p-3 text-midnight transition hover:bg-slate-50 lg:hidden"
             aria-label="Toggle menu"
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

@@ -97,6 +97,7 @@ const siteSettingsSchema = new mongoose.Schema(
     },
     hero: {
       eyebrow: { type: String, default: "Enterprise IT Partner" },
+      videoUrl: { type: String, default: "" },
       headline: { type: String, required: true },
       rotatingWords: [{ type: String }],
       subtext: { type: String, required: true },

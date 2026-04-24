@@ -5,6 +5,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "react-hot-toast";
 import App from "./App";
 import { AuthProvider } from "./context/AuthContext";
+import { LearnerAuthProvider } from "./context/LearnerAuthContext";
 import { SiteProvider } from "./context/SiteContext";
 import "./index.css";
 import "react-quill-new/dist/quill.snow.css";
@@ -14,10 +15,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <HelmetProvider>
       <BrowserRouter>
         <AuthProvider>
-          <SiteProvider>
-            <App />
-            <Toaster position="top-right" toastOptions={{ duration: 3500 }} />
-          </SiteProvider>
+          <LearnerAuthProvider>
+            <SiteProvider>
+              <App />
+              <Toaster position="top-right" toastOptions={{ duration: 3500 }} />
+            </SiteProvider>
+          </LearnerAuthProvider>
         </AuthProvider>
       </BrowserRouter>
     </HelmetProvider>

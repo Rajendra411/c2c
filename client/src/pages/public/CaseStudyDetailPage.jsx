@@ -14,7 +14,7 @@ const CaseStudyDetailPage = () => {
   }, [slug]);
 
   if (loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading case study..." variant="page" />;
   }
 
   if (!caseStudy) {

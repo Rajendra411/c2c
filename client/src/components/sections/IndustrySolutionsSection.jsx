@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import industryCardImage from "../../assets/illustrations/industry-card.svg";
 
 const IndustrySolutionsSection = ({ industries = [], services = [] }) => {
   const featuredIndustries = industries.slice(0, 6);
@@ -40,7 +41,7 @@ const IndustrySolutionsSection = ({ industries = [], services = [] }) => {
                     <img
                       src={
                         services[index % Math.max(services.length, 1)]?.image ||
-                        "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80"
+                        industryCardImage
                       }
                       alt={industry.title}
                       className="h-[156px] w-full object-cover"
@@ -65,7 +66,7 @@ const IndustrySolutionsSection = ({ industries = [], services = [] }) => {
                     <img
                       src={
                         services[(index + 2) % Math.max(services.length, 1)]?.image ||
-                        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+                        industryCardImage
                       }
                       alt={industry.title}
                       className="h-[118px] w-full object-cover"

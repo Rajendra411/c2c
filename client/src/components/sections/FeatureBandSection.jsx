@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import featurePreview from "../../assets/illustrations/feature-preview.svg";
 
 const FeatureBandSection = ({ featureImage }) => (
   <section className="navy-surface">
@@ -35,7 +36,7 @@ const FeatureBandSection = ({ featureImage }) => (
         >
           <div className="relative overflow-hidden rounded-[26px] border border-[#6ea3ff]/55 bg-[radial-gradient(circle_at_80%_20%,rgba(126,90,255,0.35),transparent_30%),linear-gradient(145deg,rgba(18,37,74,0.9),rgba(57,43,107,0.9))] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
             <img
-              src={featureImage || "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80"}
+              src={featureImage || featurePreview}
               alt="AI capability preview"
               className="h-[260px] w-full rounded-[18px] object-cover opacity-90"
               loading="lazy"

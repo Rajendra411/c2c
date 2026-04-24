@@ -15,7 +15,7 @@ const BlogPage = () => {
   }, []);
 
   if (loading) {
-    return <LoadingScreen fullScreen />;
+    return <LoadingScreen fullScreen label="Loading insights..." variant="cards" />;
   }
 
   return (

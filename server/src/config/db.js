@@ -2,8 +2,13 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    // const conn = await mongoose.connect(process.env.MONGODB_URI);
-    const conn = await mongoose.connect("mongodb+srv://rajendrala411_db_user:oIKHW2U3ZX64dzas@cluster0.ogptup3.mongodb.net/");
+    const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
+
+    if (!mongoUri) {
+      throw new Error("Missing MongoDB connection string. Set MONGO_URI.");
+    }
+
+    const conn = await mongoose.connect(mongoUri);
 
     console.log(`MongoDB connected: ${conn.connection.host}`);
   } catch (error) {
