@@ -15,6 +15,9 @@ const BlogPage = lazy(() => import("./pages/public/BlogPage"));
 const BlogDetailPage = lazy(() => import("./pages/public/BlogDetailPage"));
 const CareersPage = lazy(() => import("./pages/public/CareersPage"));
 const ContactPage = lazy(() => import("./pages/public/ContactPage"));
+const PrivacyPolicyPage = lazy(() => import("./pages/public/PrivacyPolicyPage"));
+const TermsAndConditionsPage = lazy(() => import("./pages/public/TermsAndConditionsPage"));
+const AuthPage = lazy(() => import("./pages/public/AuthPage"));
 const NotFoundPage = lazy(() => import("./pages/public/NotFoundPage"));
 const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
 const AdminDashboardPage = lazy(() => import("./pages/admin/AdminDashboardPage"));
@@ -49,6 +52,9 @@ const AppShell = () => (
           <Route path="blog/:slug" element={<BlogDetailPage />} />
           <Route path="careers" element={<CareersPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="terms-and-conditions" element={<TermsAndConditionsPage />} />
+          <Route path="auth" element={<AuthPage />} />
         </Route>
 
         <Route path="/admin/login" element={<AdminLoginPage />} />

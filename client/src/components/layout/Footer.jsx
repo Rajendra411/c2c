@@ -12,10 +12,9 @@ const Footer = () => {
   const quickLinks = settings?.footer?.quickLinks || [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
+    { label: "Services", href: "/services" },
     { label: "Contact", href: "/contact" },
+    { label: "Register/Signin", href: "/auth" },
   ];
   const serviceLinks = settings?.footer?.serviceLinks || [];
 
@@ -99,9 +98,12 @@ const Footer = () => {
         <div className="mt-6 flex flex-col gap-3 text-sm text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} {settings?.companyName || "C2C Tech Solutions"}. All rights reserved.</p>
           <div className="flex flex-wrap gap-4">
-            <span>Privacy Policy</span>
-            <span>Terms of Use</span>
-            <span>Cookies Policy</span>
+            <Link to="/privacy-policy" className="hover:text-white/70">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-and-conditions" className="hover:text-white/70">
+              Terms and Conditions
+            </Link>
           </div>
         </div>
       </div>
